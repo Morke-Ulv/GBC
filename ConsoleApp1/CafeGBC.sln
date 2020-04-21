@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CafeGBC", "ConsoleApp1\CafeGBC.csproj", "{4F6692EF-C0A8-4B92-B4BE-88645A34F015}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuTests", "MenuTests\MenuTests.csproj", "{8283DD32-BFAA-4629-9412-B19A4F4CD42D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F6692EF-C0A8-4B92-B4BE-88645A34F015}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F6692EF-C0A8-4B92-B4BE-88645A34F015}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F6692EF-C0A8-4B92-B4BE-88645A34F015}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F6692EF-C0A8-4B92-B4BE-88645A34F015}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8283DD32-BFAA-4629-9412-B19A4F4CD42D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8283DD32-BFAA-4629-9412-B19A4F4CD42D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8283DD32-BFAA-4629-9412-B19A4F4CD42D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8283DD32-BFAA-4629-9412-B19A4F4CD42D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5C45494B-F8E6-4DA3-8F2B-4A67314E585C}
+	EndGlobalSection
+EndGlobal
