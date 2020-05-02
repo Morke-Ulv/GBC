@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BadgesGBC
 {
-    class Badges
+    public class Badges
     {
         public int ID { get; set; }
         public List<Doors> Door { get; set; }
@@ -15,7 +15,7 @@ namespace BadgesGBC
         public Badges() { }
         public Badges(
             int id,
-            string doors)
+            List<Doors> doors)
         {
             ID = id;
             Door = doors;

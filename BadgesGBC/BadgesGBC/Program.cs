@@ -8,13 +8,26 @@ namespace BadgesGBC
 {
     class Program
     {
-        public void Run()
+        private readonly BadgesRepository _repo = new BadgesRepository();
+        string door;
+            List<Doors> doorsList = new List<Doors>();
+        static void Main(string[] args)
         {
-            SeedContent();
-            RunMenu();
+            Program ui = new Program();
+            ui.SeedContent();
+            ui.RunMenu();
         }
         public void SeedContent()
         {
+            Badges firstbadge = new Badges();
+            firstbadge.ID = 123;
+            Doors firstDoor = new Doors();
+            firstDoor.Door = "Door C";
+            Doors secondDoor = new Doors();
+            secondDoor.Door = "Door 121";
+            List<Doors> doors = new List<Doors>() { firstDoor, secondDoor };
+            firstbadge.Door = doors;
+            
 
         }
 
@@ -54,19 +67,88 @@ namespace BadgesGBC
             }
 
         }
-            public void AddBadge()
+        public void AddBadge()
+        {
+            Console.Clear();
+            Console.WriteLine("What is the Employee's Badge ID?");
+            int id = int.Parse(Console.ReadLine());
+            DoorEase();
+            Badges newbadge = new Badges(id, doorsList);
+            bool badgeWasAdded = _repo.BadgeAddedToDirectory(newbadge);
+            if (badgeWasAdded)
             {
+                Console.WriteLine($"Badge {id} was added.");
 
             }
-
-            public void EditBadge()
+            else
             {
+                Console.WriteLine("Badge was not added to the system.");
 
             }
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
 
-            public void ListBadges()
+        }
+
+        public void EditBadge()
+        {
+            Console.Clear();
+            Console.WriteLine("What Badge ID would you like to update?");
+            int id = int.Parse(Console.ReadLine());
+            _repo.GetBadgeForUpdate(id);
+            DoorEase();
+            Badges newBadge = new Badges();
+            _repo.UdateBadge(id, newBadge);
+            Console.WriteLine($"Badge {id} has been updated.");
+
+
+        }
+
+        public void ListBadges()
+        {
+            Console.Clear();
+
+            int index = 1;
+            List<Badges> contents = _repo.GetContents();
+            foreach (Badges content in contents)
             {
-
+                Console.WriteLine($"{index++}. {content.ID} ({content.Door})");
             }
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadLine();
+
+        }
+
+        public void DoorEase()
+        {
+            Console.WriteLine($"What door can they activate?");
+            door = Console.ReadLine();
+            var door2 = new Doors() {Door = door };
+            doorsList.Add(door2);
+            Console.WriteLine("Add more? y/n");
+            string answer = Console.ReadLine();
+            bool loop = true;
+            while (loop)
+            {
+                switch (answer)
+                {
+                    case "y":
+                    case "Y":
+                        Console.WriteLine($"What's another door to add to it?");
+                         door = Console.ReadLine();
+                        door2 = new Doors() { Door = door };
+                        doorsList.Add(door2);
+                        break;
+                    case "n":
+                    case "N":
+                        Console.WriteLine($"This Badge has been updated");
+                        loop = false;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
     }
 }
